@@ -14,11 +14,12 @@ import '../../utils/time_measure.dart';
 
 void main() {
   final String s1 = 'some' * 10000;
-  syncExecTimeMeasure(() => isValidAnagram(s1, s1), name: 'O(n)');
-  syncExecTimeMeasure(() => naiveSolution(s1, s1), name: 'O(n^2)');
+  final String s2 = 'some' * 10000;
+  syncExecTimeMeasure(() => isValidAnagram(s1, s2), name: 'O(n)');
+  syncExecTimeMeasure(() => naiveSolution(s1, s2), name: 'O(n^2)');
 }
 
-//Input: 2 strings, Output: bool
+//Input: 2 strings / Output: bool
 bool isValidAnagram(String first, String second) {
   //If both strings have different length, return false immediately.
   if (first.length != second.length) return false;
