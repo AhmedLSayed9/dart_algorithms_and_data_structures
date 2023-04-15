@@ -14,7 +14,7 @@ void main() {
 }
 
 //Input: sorted array of numbers / Output: count of the unique values
-countUniqueValues(List<int> numbersList) {
+int countUniqueValues(List<int> numbersList) {
   //If the list is empty, return directly
   if (numbersList.isEmpty) return 0;
 
