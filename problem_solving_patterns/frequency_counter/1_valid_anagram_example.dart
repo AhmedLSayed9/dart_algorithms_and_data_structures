@@ -1,3 +1,5 @@
+import 'package:characters/characters.dart';
+
 import '../../utils/time_measure.dart';
 
 /// Given two strings, write a function called validAnagram to determine if the second
@@ -10,7 +12,7 @@ import '../../utils/time_measure.dart';
 /// validAnagram('aaz', 'zza'); // false
 /// validAnagram('anagram', 'nagaram'); // true
 ///
-/// Time: O(n) / Space: O(n)
+/// Solution MUST have the following complexities: Time: O(n) / Space: O(n)
 
 void main() {
   final String s1 = 'some' * 10000;
@@ -29,15 +31,13 @@ bool isValidAnagram(String first, String second) {
 
   //Loop through first string, and store each char in a Map<String,int> where the key
   //is the char and the value is the count.
-  for (final charCode in first.runes) {
-    final char = String.fromCharCode(charCode);
+  for (final char in first.characters) {
     charCounter[char] = charCounter[char] == null ? 1 : charCounter[char]! + 1;
   }
 
   //Loop through second string, If can't find a letter at charCounter return false,
   //or else decrease the count of that letter.
-  for (final charCode in second.runes) {
-    final char = String.fromCharCode(charCode);
+  for (final char in second.characters) {
     final charCount = charCounter[char];
 
     if (charCount == null || charCount == 0) {
@@ -56,8 +56,7 @@ bool naiveSolution(String first, String second) {
   if (first.length != second.length) return false;
 
   final secondChars = second.split('');
-  for (final charCode in first.runes) {
-    final char = String.fromCharCode(charCode);
+  for (final char in first.characters) {
     final indexAtSecond = secondChars.indexOf(char);
     if (indexAtSecond == -1) return false;
     secondChars.removeAt(indexAtSecond);

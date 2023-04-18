@@ -6,9 +6,9 @@ repository: https://github.com/AhmedLSayed9/dart_algorithms_and_data_structures
 environment:
   sdk: '>=2.19.3 <3.0.0'
 
-# dependencies:
-#   path: ^1.8.0
+dependencies:
+  characters: ^1.3.0
 
 dev_dependencies:
-  lints: ^2.0.0
-  test: ^1.21.0
+  lints: ^2.0.1
+  test: ^1.24.1
