@@ -27,23 +27,23 @@ bool isValidAnagram(String first, String second) {
   if (first.length != second.length) return false;
 
   //Create Map<String,int> to store each char and its count.
-  final Map<String, int> charCounter = {};
+  final Map<String, int> freqCount = {};
 
   //Loop through first string, and store each char in a Map<String,int> where the key
   //is the char and the value is the count.
   for (final char in first.characters) {
-    charCounter[char] = charCounter[char] == null ? 1 : charCounter[char]! + 1;
+    freqCount[char] = freqCount[char] == null ? 1 : freqCount[char]! + 1;
   }
 
-  //Loop through second string, If can't find a letter at charCounter return false,
+  //Loop through second string, If can't find a letter at freqCount return false,
   //or else decrease the count of that letter.
   for (final char in second.characters) {
-    final charCount = charCounter[char];
+    final charCount = freqCount[char];
 
     if (charCount == null || charCount == 0) {
       return false;
     } else {
-      charCounter[char] = charCount - 1;
+      freqCount[char] = charCount - 1;
     }
   }
 

@@ -24,22 +24,22 @@ sameFrequency(int num1, int num2) {
   if (n1.length != n2.length) return false;
 
   //Declare a map that store each number and its count
-  final Map<String, int> digitsCounter = {};
+  final Map<String, int> freqCount = {};
 
   //Iterate over first string, and store each char and its count in the map
   for (final char in n1.characters) {
-    digitsCounter[char] =
-        digitsCounter[char] == null ? 1 : digitsCounter[char]! + 1;
+    freqCount[char] =
+        freqCount[char] == null ? 1 : freqCount[char]! + 1;
   }
 
   //Iterate over second string, and check if that char has no count in the map
   //then return false, or else decrease its count
   for (final char in n2.characters) {
-    final currentCount = digitsCounter[char];
+    final currentCount = freqCount[char];
 
     if (currentCount == null || currentCount == 0) return false;
 
-    digitsCounter[char] = currentCount - 1;
+    freqCount[char] = currentCount - 1;
   }
 
   //Return true as both have same digits
