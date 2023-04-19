@@ -15,19 +15,19 @@ void main() {
 }
 
 //Input: Array of integers + n / Output: Max sum of n consecutive elements
-int? maxSubArraySum(List<int> numbersList, int n) {
-  if (numbersList.length < n) return null;
+int? maxSubArraySum(List<int> numbers, int n) {
+  if (numbers.length < n) return null;
 
   int maxSum = 0;
   int tempSum = 0;
 
   for (int i = 0; i < n; i++) {
-    maxSum += numbersList[i];
+    maxSum += numbers[i];
   }
 
   tempSum = maxSum;
-  for (int i = n; i < numbersList.length; i++) {
-    tempSum = tempSum - numbersList[i - n] + numbersList[i];
+  for (int i = n; i < numbers.length; i++) {
+    tempSum = tempSum - numbers[i - n] + numbers[i];
     maxSum = math.max(maxSum, tempSum);
   }
 

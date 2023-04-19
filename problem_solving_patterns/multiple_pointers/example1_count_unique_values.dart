@@ -14,9 +14,9 @@ void main() {
 }
 
 //Input: sorted array of numbers / Output: count of the unique values
-int countUniqueValues(List<int> numbersList) {
+int countUniqueValues(List<int> numbers) {
   //If the list is empty, return directly
-  if (numbersList.isEmpty) return 0;
+  if (numbers.isEmpty) return 0;
 
   //Declare 2 pointers, one start from index 0 and the other from index 1
   int p1 = 0;
@@ -27,9 +27,9 @@ int countUniqueValues(List<int> numbersList) {
   //  - p1 will move forward one step and put p2's value at that index.
   //  - then pointer2 will keep going.
   //The loop will stop if p2 is the last item
-  for (int p2 = 1; p2 < numbersList.length; p2++) {
-    if (numbersList[p1] != numbersList[p2]) {
-      numbersList[++p1] = numbersList[p2];
+  for (int p2 = 1; p2 < numbers.length; p2++) {
+    if (numbers[p1] != numbers[p2]) {
+      numbers[++p1] = numbers[p2];
     }
   }
 
