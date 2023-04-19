@@ -7,14 +7,14 @@
 /// averagePair([-1, 0, 3, 4, 5, 6], 4.1); // false
 /// averagePair([], 4); // false
 ///
-/// Solution MUST have the following complexities: Time: O(n) / Space: O(1)
+/// Solution MUST have AT LEAST the following complexities: Time: O(n) / Space: O(1)
 
 void main() {
   print(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8));
 }
 
-//Input: sorted List<int> and target average
-//Output: bool, if there is a pair where the average equals the target average
+// Input: sorted List<int> and target average
+// Output: bool, if there is a pair where the average equals the target average
 bool averagePair(List<int> numbers, double targetAverage) {
   int left = 0;
   int right = numbers.length - 1;

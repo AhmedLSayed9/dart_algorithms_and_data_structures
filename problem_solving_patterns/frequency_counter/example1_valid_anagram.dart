@@ -12,7 +12,7 @@ import '../../utils/time_measure.dart';
 /// validAnagram('aaz', 'zza'); // false
 /// validAnagram('anagram', 'nagaram'); // true
 ///
-/// Solution MUST have the following complexities: Time: O(n) / Space: O(n)
+/// Solution MUST have AT LEAST the following complexities: Time: O(n) / Space: O(n)
 
 void main() {
   final String s1 = 'some' * 10000;
@@ -21,22 +21,23 @@ void main() {
   syncExecTimeMeasure(() => naiveSolution(s1, s2), name: 'O(n^2)');
 }
 
-//Input: 2 strings / Output: bool
+// Input: 2 strings
+// Output: bool
 bool isValidAnagram(String first, String second) {
-  //If both strings have different length, return false immediately.
+  // If both strings have different length, return false immediately.
   if (first.length != second.length) return false;
 
-  //Create Map<String,int> to store each char and its count.
+  // Create Map<String,int> to store each char and its count.
   final Map<String, int> freqCount = {};
 
-  //Loop through first string, and store each char in a Map<String,int> where the key
-  //is the char and the value is the count.
+  // Loop through first string, and store each char in a Map<String,int> where the key
+  // is the char and the value is the count.
   for (final char in first.characters) {
     freqCount[char] = freqCount[char] == null ? 1 : freqCount[char]! + 1;
   }
 
-  //Loop through second string, If can't find a letter at freqCount return false,
-  //or else decrease the count of that letter.
+  // Loop through second string, If can't find a letter at freqCount return false,
+  // or else decrease the count of that letter.
   for (final char in second.characters) {
     final charCount = freqCount[char];
 
@@ -47,11 +48,11 @@ bool isValidAnagram(String first, String second) {
     }
   }
 
-  //Return true eventually.
+  // Return true eventually.
   return true;
 }
 
-//Naive Solution
+// Naive Solution
 bool naiveSolution(String first, String second) {
   if (first.length != second.length) return false;
 

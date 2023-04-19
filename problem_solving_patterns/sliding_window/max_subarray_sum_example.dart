@@ -14,7 +14,8 @@ void main() {
   print(maxSubArraySum([1, 2, 5, 2, 8, 1, 5], 4));
 }
 
-//Input: Array of integers + n / Output: Max sum of n consecutive elements
+// Input: Array of integers + n
+// Output: Max sum of n consecutive elements
 int? maxSubArraySum(List<int> numbers, int n) {
   if (numbers.length < n) return null;
 

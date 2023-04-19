@@ -13,26 +13,27 @@ void main() {
   print(countUniqueValues([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13]));
 }
 
-//Input: sorted array of numbers / Output: count of the unique values
+// Input: sorted array of numbers
+// Output: count of the unique values
 int countUniqueValues(List<int> numbers) {
-  //If the list is empty, return directly
+  // If the list is empty, return directly
   if (numbers.isEmpty) return 0;
 
-  //Declare 2 pointers, one start from index 0 and the other from index 1
+  // Declare 2 pointers, one start from index 0 and the other from index 1
   int p1 = 0;
 
-  //p2 is going to start from index 1 and compare its value with value at p1:
-  //if they're equal, then p2 will keep going.
-  //if they're different then:
-  //  - p1 will move forward one step and put p2's value at that index.
-  //  - then pointer2 will keep going.
-  //The loop will stop if p2 is the last item
+  // p2 is going to start from index 1 and compare its value with value at p1:
+  // if they're equal, then p2 will keep going.
+  // if they're different then:
+  //   - p1 will move forward one step and put p2's value at that index.
+  //   - then pointer2 will keep going.
+  // The loop will stop if p2 is the last item
   for (int p2 = 1; p2 < numbers.length; p2++) {
     if (numbers[p1] != numbers[p2]) {
       numbers[++p1] = numbers[p2];
     }
   }
 
-  //Return current p1 + 1 (the count of unique values)
+  // Return current p1 + 1 (the count of unique values)
   return p1 + 1;
 }

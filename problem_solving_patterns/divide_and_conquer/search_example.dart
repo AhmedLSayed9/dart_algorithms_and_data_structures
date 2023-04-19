@@ -12,7 +12,8 @@ void main() {
   print(search([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13], 4));
 }
 
-//Input: sorted array of numbers + search value / Output: index of the value
+// Input: sorted array of numbers + search value
+// Output: index of the value
 search(List<int> numbers, int value) {
   int min = 0;
   int max = numbers.length - 1;
