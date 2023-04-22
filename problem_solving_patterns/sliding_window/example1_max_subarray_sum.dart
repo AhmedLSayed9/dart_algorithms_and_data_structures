@@ -8,7 +8,7 @@ import 'dart:math' as math;
 /// maxSubArraySum([4, 2, 1, 6], 1); // 6
 /// maxSubArraySum([], 4); // null
 ///
-/// Time: O(n) / Space: O(1)
+/// Solution MUST have AT LEAST the following complexities: Time: O(n) / Space: O(1)
 
 void main() {
   print(maxSubArraySum([1, 2, 5, 2, 8, 1, 5], 4));

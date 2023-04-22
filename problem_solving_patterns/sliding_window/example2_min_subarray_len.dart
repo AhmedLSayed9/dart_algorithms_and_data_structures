@@ -15,7 +15,7 @@ import 'dart:math' as math;
 /// minSubArrayLen([4, 3, 3, 8, 1, 2, 3], 11) // 2
 /// minSubArrayLen([1,4,16,22,5,7,8,9,10],95) // 0
 ///
-/// Time: O(n) / Space: O(1)
+/// Solution MUST have AT LEAST the following complexities: Time: O(n) / Space: O(1)
 
 void main() {
   print(minSubArrayLen([1,4,16,22,5,7,8,9,10],39));
