@@ -15,18 +15,18 @@ void main() {
 // Input: sorted array of numbers + search value
 // Output: index of the value
 search(List<int> numbers, int value) {
-  int min = 0;
-  int max = numbers.length - 1;
+  int left = 0;
+  int right = numbers.length - 1;
 
-  while (min <= max) {
-    final int middle = ((min + max) / 2).floor();
+  while (left <= right) {
+    final int middle = ((left + right) / 2).floor();
     final int middleElement = numbers[middle];
 
     if (middleElement < value) {
-      min = middle + 1;
+      left = middle + 1;
     }
     else if (middleElement > value) {
-      max = middle - 1;
+      right = middle - 1;
     }
     else {
       return middle;
