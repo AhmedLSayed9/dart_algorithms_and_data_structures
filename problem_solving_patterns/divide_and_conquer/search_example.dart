@@ -20,15 +20,13 @@ search(List<int> numbers, int value) {
 
   while (left <= right) {
     final int middle = ((left + right) / 2).floor();
-    final int middleElement = numbers[middle];
+    final int middleItem = numbers[middle];
 
-    if (middleElement < value) {
+    if (middleItem < value) {
       left = middle + 1;
-    }
-    else if (middleElement > value) {
+    } else if (middleItem > value) {
       right = middle - 1;
-    }
-    else {
+    } else {
       return middle;
     }
   }
