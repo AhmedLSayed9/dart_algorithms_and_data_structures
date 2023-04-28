@@ -22,9 +22,9 @@ search(List<int> numbers, int value) {
     final int middle = ((left + right) / 2).floor();
     final int middleItem = numbers[middle];
 
-    if (middleItem < value) {
+    if (value > middleItem) {
       left = middle + 1;
-    } else if (middleItem > value) {
+    } else if (value < middleItem) {
       right = middle - 1;
     } else {
       return middle;

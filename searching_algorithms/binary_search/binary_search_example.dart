@@ -40,7 +40,7 @@ int binarySearch(List<int> arr, int val) {
 
     if (val > middleItem) {
       left = middle + 1;
-    } else if (val > middleItem) {
+    } else if (val < middleItem) {
       right = middle - 1;
     } else {
       return middle;
