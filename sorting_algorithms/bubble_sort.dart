@@ -1,4 +1,4 @@
-import '../../utils/list_extension.dart';
+import '../utils/list_extension.dart';
 
 /// Pseudocode:
 /// Start looping with a variable called i from the end of the array towards the beginning.
