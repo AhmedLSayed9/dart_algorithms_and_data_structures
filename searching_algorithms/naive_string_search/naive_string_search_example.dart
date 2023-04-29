@@ -5,6 +5,9 @@
 /// If the characters do match, keep going
 /// If you complete the inner loop and find a match, increment the count of matches
 /// Return the count
+///
+/// Time Complexity: O(n²) “O(nm)”
+/// Auxiliary Space: O(1)
 
 void main() {
   print(naiveSearch('wowomgzomg', 'omg'));

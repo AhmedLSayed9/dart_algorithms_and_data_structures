@@ -17,6 +17,9 @@
 ///   5, 6, 10, 13, 14, 18, 30, 34, 35, 37,
 ///   40, 44, 64, 79, 84, 86, 95, 96, 98, 99
 /// ], 100) // -1
+///
+/// Time Complexity: Best O(1) - Worst O(log n) - Average O(log n)
+/// Auxiliary Space: O(1)
 
 void main() {
   print(binarySearch([1, 2, 3, 4, 5], 5));

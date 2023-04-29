@@ -1,3 +1,9 @@
+/// KMP algorithm offers an improvement over the naive approach.
+/// It provides a linear time algorithm for searches in strings
+///
+/// Time Complexity: O(n) “O(n+m)”
+/// Auxiliary Space: O(m)
+
 void main() {
   print(kmpSearch('wowomgzomg', 'omg'));
 }
