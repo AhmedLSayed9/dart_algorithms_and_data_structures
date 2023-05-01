@@ -18,10 +18,10 @@ List<int> mergeSort(List<int> arr) {
   final int middle = ((arr.length - 1) / 2).floor();
 
   // declare the left half range from the start to middle
-  // re-call mergeSort (recursive) (which will break if there's no more than 1 items)
+  // recursively call mergeSort (which will break if there's no more than 1 items)
   final List<int> left = mergeSort(arr.sublist(0, middle + 1));
   // declare the right half range from middle to the end
-  // re-call mergeSort (recursive) (which will break if there's no more than 1 items)
+  // recursively call mergeSort (which will break if there's no more than 1 items)
   final List<int> right = mergeSort(arr.sublist(middle + 1));
 
   // return merge(left, right) as both halves should be sorted
