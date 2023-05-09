@@ -14,13 +14,13 @@ void main() {
 
 List<int> insertionSort(List<int> arr) {
   for (int i = 1; i < arr.length; i++) {
-    final currentVal = arr[i];
+    final currentValue = arr[i];
     int j = i - 1;
-    for (; j >= 0 && arr[j] > currentVal; j--) {
+    for (; j >= 0 && arr[j] > currentValue; j--) {
       arr[j + 1] = arr[j];
     }
     //j + 1 because at last iteration (j--) get executed before checking the condition
-    arr[j + 1] = currentVal;
+    arr[j + 1] = currentValue;
   }
   return arr;
 }

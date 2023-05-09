@@ -10,30 +10,30 @@ void main() {
 
 int kmpSearch(String long,String short) {
   final List<int> table = matchTable(short);
-  int shortIdx = 0;
-  int longIdx = 0;
+  int shortPointer = 0;
+  int longPointer = 0;
   int count = 0;
-  while (longIdx < long.length - short.length + shortIdx + 1) {
-    if (short[shortIdx] != long[longIdx]) {
+  while (longPointer < long.length - short.length + shortPointer + 1) {
+    if (short[shortPointer] != long[longPointer]) {
       // we found a mismatch :(
       // if we just started searching the short, move the long pointer
       // otherwise, move the short pointer to the end of the next potential prefix
       // that will lead to a match
-      if (shortIdx == 0) {
-        longIdx += 1;
+      if (shortPointer == 0) {
+        longPointer += 1;
       } else {
-        shortIdx = table[shortIdx - 1];
+        shortPointer = table[shortPointer - 1];
       }
     } else {
       // we found a match! shift both pointers
-      shortIdx += 1;
-      longIdx += 1;
+      shortPointer += 1;
+      longPointer += 1;
       // then check to see if we've found the substring in the large string
-      if (shortIdx == short.length) {
+      if (shortPointer == short.length) {
         // we found a substring! increment the count
         // then move the short pointer to the end of the next potential prefix
         count++;
-        shortIdx = table[shortIdx - 1];
+        shortPointer = table[shortPointer - 1];
       }
     }
   }
