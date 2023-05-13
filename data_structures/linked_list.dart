@@ -118,7 +118,7 @@ class LinkedList<T> extends Iterable<T> {
     if (index < 0 || index >= _length) return null;
 
     Node<T>? current = _head;
-    for (int i = 0; i < index; i++) {
+    for (int i = 0; i != index; i++) {
       current = current?.next;
     }
     return current;
