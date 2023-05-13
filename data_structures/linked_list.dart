@@ -8,8 +8,10 @@ class Node<T> {
 }
 
 class LinkedList<T> extends Iterable<T> {
+  int _length = 0;
+
   @override
-  int length = 0;
+  int get length => this._length;
 
   @override
   Iterator<T> get iterator => LinkedListIterator<T>(this._head);
@@ -27,14 +29,14 @@ class LinkedList<T> extends Iterable<T> {
   /// - Return the linked list.
   LinkedList<T> push(T value) {
     final newNode = Node(value);
-    if (_head == null) {
+    if (_length == 0) {
       _head = newNode;
       _tail = newNode;
     } else {
       _tail!.next = newNode;
       _tail = newNode;
     }
-    length++;
+    _length++;
     return this;
   }
 
@@ -46,7 +48,7 @@ class LinkedList<T> extends Iterable<T> {
   /// - Decrement the length of the list by 1.
   /// - Return the value of the node removed.
   T? pop() {
-    if (_head == null) return null;
+    if (_length == 0) return null;
 
     Node<T>? temp = _head;
     Node<T>? previousNode;
@@ -59,9 +61,9 @@ class LinkedList<T> extends Iterable<T> {
     _tail = previousNode;
     _tail?.next = null;
 
-    length--;
+    _length--;
     // if there's no items in the list, reset the head to null too.
-    if (length == 0) _head = null;
+    if (_length == 0) _head = null;
     return temp?.value;
   }
 
@@ -72,14 +74,14 @@ class LinkedList<T> extends Iterable<T> {
   /// - Decrement the length by 1.
   /// - Return the value of the node removed.
   T? shift() {
-    if (_head == null) return null;
+    if (_length == 0) return null;
 
     Node<T>? temp = _head;
     _head = temp?.next;
 
-    length--;
+    _length--;
     // if there's no items in the list, reset the tail to null too.
-    if (length == 0) _tail = null;
+    if (_length == 0) _tail = null;
     return temp?.value;
   }
 
@@ -93,14 +95,14 @@ class LinkedList<T> extends Iterable<T> {
   /// - Return the linked list.
   LinkedList<T> unShift(T value) {
     final newNode = Node(value);
-    if (_head == null) {
+    if (_length == 0) {
       _head = newNode;
       _tail = newNode;
     } else {
       newNode.next = _head;
       _head = newNode;
     }
-    length++;
+    _length++;
     return this;
   }
 
@@ -113,7 +115,7 @@ class LinkedList<T> extends Iterable<T> {
   }
 
   Node<T>? _getNodeAtIndex(int index) {
-    if (index < 0 || index >= length) return null;
+    if (index < 0 || index >= _length) return null;
 
     Node<T>? current = _head;
     for (int i = 0; i < index; i++) {
@@ -146,9 +148,9 @@ class LinkedList<T> extends Iterable<T> {
   /// - Increment the length.
   /// - Return true.
   bool insert(int index, T value) {
-    if (index < 0 || index > length) return false;
+    if (index < 0 || index > _length) return false;
 
-    if (index == length) {
+    if (index == _length) {
       push(value);
     } else if (index == 0) {
       unShift(value);
@@ -157,7 +159,7 @@ class LinkedList<T> extends Iterable<T> {
       final previousNode = _getNodeAtIndex(index - 1)!;
       newNode.next = previousNode.next;
       previousNode.next = newNode;
-      length++;
+      _length++;
     }
     return true;
   }
@@ -171,15 +173,15 @@ class LinkedList<T> extends Iterable<T> {
   /// - Decrement the length.
   /// - Return the value of the node removed.
   T? remove(int index) {
-    if (index < 0 || index >= length) return null;
+    if (index < 0 || index >= _length) return null;
 
-    if (index == length - 1) return pop();
+    if (index == _length - 1) return pop();
     if (index == 0) return shift();
 
     final removedNode = _getNodeAtIndex(index)!;
     final previousNode = _getNodeAtIndex(index - 1)!;
     previousNode.next = removedNode.next;
-    length--;
+    _length--;
     return removedNode.value;
   }
 
@@ -195,7 +197,7 @@ class LinkedList<T> extends Iterable<T> {
   /// - Set the node variable to be the value of the next variable.
   /// - Once you have finished looping, return the list.
   LinkedList<T> reverse() {
-    if (length <= 1) return this;
+    if (_length <= 1) return this;
 
     Node<T>? currentNode = _head;
     _head = _tail;
@@ -203,7 +205,7 @@ class LinkedList<T> extends Iterable<T> {
 
     Node<T>? tempNext;
     Node<T>? tempPrevious;
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < _length; i++) {
       tempNext = currentNode?.next;
       currentNode?.next = tempPrevious;
       tempPrevious = currentNode;
