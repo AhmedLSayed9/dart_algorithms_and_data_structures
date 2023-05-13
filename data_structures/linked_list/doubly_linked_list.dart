@@ -47,7 +47,7 @@ class LinkedList<T> extends Iterable<T> {
   /// - Store the current tail in a variable to return later.
   /// - Update the tail to be the previous Node.
   /// - Set the newTail's next to null.
-  /// - If there is only 1 node, reset the head to null too.
+  /// - If there is only 1 node, set the head to null too.
   /// - Decrement the length.
   /// - Return the value removed.
   T? pop() {
@@ -67,7 +67,7 @@ class LinkedList<T> extends Iterable<T> {
   /// - Store the current tail in a variable to return later.
   /// - Update the head to be the next of the old head.
   /// - Set the head's prev property to null.
-  /// - If there is only 1 node, reset the tail to null too.
+  /// - If there is only 1 node, set the tail to null too.
   /// - Decrement the length.
   /// - Return the value of the node removed.
   T? shift() {
