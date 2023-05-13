@@ -8,7 +8,7 @@ class Node<T> {
   Node<T>? prev;
 }
 
-class LinkedList<T> extends Iterable<T> {
+class DoubleLinkedList<T> extends Iterable<T> {
   int _length = 0;
 
   @override
@@ -28,7 +28,7 @@ class LinkedList<T> extends Iterable<T> {
   /// - Set the tail to be the newly created node.
   /// - Increment the length.
   /// - Return the Doubly Linked List.
-  LinkedList<T> push(T value) {
+  DoubleLinkedList<T> push(T value) {
     final newNode = Node(value);
     if (_length == 0) {
       _head = newNode;
@@ -92,7 +92,7 @@ class LinkedList<T> extends Iterable<T> {
   ///   - Update the head to be the new node.
   /// - Increment the length of the list by 1.
   /// - Return the linked list.
-  LinkedList<T> unShift(T value) {
+  DoubleLinkedList<T> unShift(T value) {
     final newNode = Node(value);
     if (_length == 0) {
       _head = newNode;
@@ -235,7 +235,7 @@ class LinkedListIterator<T> extends Iterator<T> {
 void main() {
   group('push', () {
     test('should push items in order', () {
-      final linkedList = LinkedList<int>();
+      final linkedList = DoubleLinkedList<int>();
       linkedList.push(1);
       linkedList.push(2);
       linkedList.push(3);
@@ -247,7 +247,7 @@ void main() {
     });
 
     test('pushed node should has ref to prev node', () {
-      final linkedList = LinkedList<int>();
+      final linkedList = DoubleLinkedList<int>();
       linkedList.push(1);
       linkedList.push(2);
 
@@ -257,7 +257,7 @@ void main() {
 
   group('pop', () {
     test('should pop and return the tail', () {
-      final linkedList = LinkedList<int>();
+      final linkedList = DoubleLinkedList<int>();
       linkedList.push(1);
       linkedList.push(2);
       linkedList.push(3);
@@ -269,7 +269,7 @@ void main() {
     });
 
     test('should return null if the list is empty', () {
-      final linkedList = LinkedList<int>();
+      final linkedList = DoubleLinkedList<int>();
 
       expect(linkedList.pop(), isNull);
       expect(linkedList, equals([]));
