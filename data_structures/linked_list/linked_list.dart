@@ -228,6 +228,8 @@ class LinkedList<T> extends Iterable<T> {
 }
 
 class LinkedListIterator<T> extends Iterator<T> {
+  LinkedListIterator(this._current);
+
   Node<T>? _current;
 
   @override
@@ -236,13 +238,9 @@ class LinkedListIterator<T> extends Iterator<T> {
   @override
   T get current {
     T currentValue = this._current!.value;
-
     this._current = this._current!.next;
-
     return currentValue;
   }
-
-  LinkedListIterator(this._current);
 }
 
 void main() {
