@@ -46,17 +46,6 @@ class LinkedListStack<T> {
     _size--;
     return oldHead?.value;
   }
-
-  @override
-  String toString() {
-    List<T> values = [];
-    Node<T>? currentNode = _head;
-    while (currentNode != null) {
-      values.add(currentNode.value);
-      currentNode = currentNode.next;
-    }
-    return values.toString();
-  }
 }
 
 void main() {
