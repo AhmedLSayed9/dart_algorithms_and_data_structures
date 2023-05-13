@@ -45,9 +45,9 @@ class LinkedList<T> extends Iterable<T> {
   /// Pseudocode:
   /// - If there is no head, return undefined.
   /// - Store the current tail in a variable to return later.
-  /// - If the length is 1, set the head and tail to be null.
   /// - Update the tail to be the previous Node.
   /// - Set the newTail's next to null.
+  /// - If there is only 1 node, reset the head to null too.
   /// - Decrement the length.
   /// - Return the value removed.
   T? pop() {
@@ -56,19 +56,18 @@ class LinkedList<T> extends Iterable<T> {
     Node<T>? poppedNode = _tail;
     _tail = _tail?.prev;
     _tail?.next = null;
+    if (_length == 1) _head = null;
 
     _length--;
-    // if there's no items in the list, reset the head to null too.
-    if (_length == 0) _head = null;
     return poppedNode?.value;
   }
 
   /// Pseudocode:
   /// - If length is 0, return undefined.
   /// - Store the current tail in a variable to return later.
-  /// - If the length is 1, set the head and tail to be null.
   /// - Update the head to be the next of the old head.
   /// - Set the head's prev property to null.
+  /// - If there is only 1 node, reset the tail to null too.
   /// - Decrement the length.
   /// - Return the value of the node removed.
   T? shift() {
@@ -77,10 +76,9 @@ class LinkedList<T> extends Iterable<T> {
     Node<T>? oldHead = _head;
     _head = oldHead?.next;
     _head?.prev = null;
+    if (_length == 1) _tail = null;
 
     _length--;
-    // if there's no items in the list, reset the tail to null too.
-    if (_length == 0) _tail = null;
     return oldHead?.value;
   }
 
