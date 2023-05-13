@@ -156,9 +156,9 @@ class LinkedList<T> extends Iterable<T> {
       unShift(value);
     } else {
       final newNode = Node(value);
-      final previousNode = _getNodeAtIndex(index - 1)!;
-      newNode.next = previousNode.next;
-      previousNode.next = newNode;
+      final prevNode = _getNodeAtIndex(index - 1)!;
+      newNode.next = prevNode.next;
+      prevNode.next = newNode;
       _length++;
     }
     return true;
@@ -179,8 +179,8 @@ class LinkedList<T> extends Iterable<T> {
     if (index == 0) return shift();
 
     final removedNode = _getNodeAtIndex(index)!;
-    final previousNode = _getNodeAtIndex(index - 1)!;
-    previousNode.next = removedNode.next;
+    final prevNode = _getNodeAtIndex(index - 1)!;
+    prevNode.next = removedNode.next;
     _length--;
     return removedNode.value;
   }
