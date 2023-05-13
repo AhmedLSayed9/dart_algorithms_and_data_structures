@@ -178,8 +178,8 @@ class LinkedList<T> extends Iterable<T> {
     if (index == _length - 1) return pop();
     if (index == 0) return shift();
 
-    final removedNode = _getNodeAtIndex(index)!;
     final prevNode = _getNodeAtIndex(index - 1)!;
+    final removedNode = prevNode.next!;
     prevNode.next = removedNode.next;
     _length--;
     return removedNode.value;
