@@ -50,12 +50,12 @@ class LinkedList<T> extends Iterable<T> {
   T? pop() {
     if (_length == 0) return null;
 
-    Node<T>? temp = _head;
+    Node<T>? poppedNode = _head;
     Node<T>? previousNode;
 
-    while (temp?.next != null) {
-      previousNode = temp;
-      temp = temp?.next;
+    while (poppedNode?.next != null) {
+      previousNode = poppedNode;
+      poppedNode = poppedNode?.next;
     }
 
     _tail = previousNode;
@@ -64,7 +64,7 @@ class LinkedList<T> extends Iterable<T> {
     _length--;
     // if there's no items in the list, reset the head to null too.
     if (_length == 0) _head = null;
-    return temp?.value;
+    return poppedNode?.value;
   }
 
   /// Pseudocode:
@@ -76,13 +76,13 @@ class LinkedList<T> extends Iterable<T> {
   T? shift() {
     if (_length == 0) return null;
 
-    Node<T>? temp = _head;
-    _head = temp?.next;
+    Node<T>? oldHead = _head;
+    _head = oldHead?.next;
 
     _length--;
     // if there's no items in the list, reset the tail to null too.
     if (_length == 0) _tail = null;
-    return temp?.value;
+    return oldHead?.value;
   }
 
   /// Pseudocode:
@@ -204,11 +204,11 @@ class LinkedList<T> extends Iterable<T> {
     _tail = currentNode;
 
     Node<T>? tempNext;
-    Node<T>? tempPrevious;
+    Node<T>? tempPrev;
     for (int i = 0; i < _length; i++) {
       tempNext = currentNode?.next;
-      currentNode?.next = tempPrevious;
-      tempPrevious = currentNode;
+      currentNode?.next = tempPrev;
+      tempPrev = currentNode;
       currentNode = tempNext;
     }
 
