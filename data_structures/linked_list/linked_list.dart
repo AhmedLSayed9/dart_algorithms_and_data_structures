@@ -14,7 +14,7 @@ class LinkedList<T> extends Iterable<T> {
   int get length => this._length;
 
   @override
-  Iterator<T> get iterator => LinkedListIterator<T>(this._head);
+  Iterator<T> get iterator => _LinkedListIterator<T>(this._head);
 
   Node<T>? _head;
   Node<T>? _tail;
@@ -227,8 +227,8 @@ class LinkedList<T> extends Iterable<T> {
   }
 }
 
-class LinkedListIterator<T> extends Iterator<T> {
-  LinkedListIterator(this._current);
+class _LinkedListIterator<T> extends Iterator<T> {
+  _LinkedListIterator(this._current);
 
   Node<T>? _current;
 
