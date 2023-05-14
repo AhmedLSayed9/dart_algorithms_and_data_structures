@@ -227,7 +227,7 @@ class LinkedList<T> extends Iterable<T> {
   }
 }
 
-class _LinkedListIterator<T> extends Iterator<T> {
+class _LinkedListIterator<T> implements Iterator<T> {
   _LinkedListIterator(this._current);
 
   Node<T>? _current;
