@@ -11,14 +11,13 @@ class Node<T> {
 class DoubleLinkedList<T> extends Iterable<T> {
   int _length = 0;
 
+  Node<T>? _head, _tail;
+
   @override
   int get length => this._length;
 
   @override
   Iterator<T> get iterator => _LinkedListIterator<T>(this._head);
-
-  Node<T>? _head;
-  Node<T>? _tail;
 
   /// Pseudocode:
   /// - Create a new node with the value passed to the function.

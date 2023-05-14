@@ -9,6 +9,7 @@ class Node<T> {
 
 class LinkedListStack<T> {
   Node<T>? _head;
+
   int _size = 0;
 
   T? get last => _head?.value;
