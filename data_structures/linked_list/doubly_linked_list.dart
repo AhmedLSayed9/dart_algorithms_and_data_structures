@@ -19,6 +19,8 @@ class DoubleLinkedList<T> extends Iterable<T> {
   @override
   Iterator<T> get iterator => _LinkedListIterator<T>(this._head);
 
+  /// Adding a node to the end of the Doubly Linked List.
+  ///
   /// Pseudocode:
   /// - Create a new node with the value passed to the function.
   /// - If the list is empty, set the head and tail to be the newly created node.
@@ -44,6 +46,8 @@ class DoubleLinkedList<T> extends Iterable<T> {
     return this;
   }
 
+  /// Removing a node from the end of the Doubly Linked List.
+  ///
   /// Pseudocode:
   /// - If the list is empty, return null.
   /// - Store the current tail in a variable to return later.
@@ -69,6 +73,8 @@ class DoubleLinkedList<T> extends Iterable<T> {
     return poppedNode.value;
   }
 
+  /// Removing a node from the beginning of the Doubly Linked List.
+  ///
   /// Pseudocode:
   /// - If the list is empty, return null.
   /// - Store the current head in a variable to return later.
@@ -94,6 +100,8 @@ class DoubleLinkedList<T> extends Iterable<T> {
     return oldHead.value;
   }
 
+  /// Adding a node to the beginning of the Doubly Linked List.
+  ///
   /// Pseudocode:
   /// - This function should accept a value.
   /// - Create a new node using the value passed to the function.
@@ -120,10 +128,8 @@ class DoubleLinkedList<T> extends Iterable<T> {
     return this;
   }
 
-  T? get(int index) {
-    return _getNodeAtIndex(index)?.value;
-  }
-
+  /// Accessing a node in a Doubly Linked List by its position.
+  ///
   /// Pseudocode:
   /// - If the index is less than 0 or greater or equal to the length, return null
   /// - If the index is less than or equal to half the length of the list:
@@ -132,6 +138,10 @@ class DoubleLinkedList<T> extends Iterable<T> {
   /// - If the index is greater than half the length of the list:
   ///   - Loop through the list starting from the tail and loop towards the middle
   ///   - Return the node once it is found
+  T? get(int index) {
+    return _getNodeAtIndex(index)?.value;
+  }
+
   Node<T>? _getNodeAtIndex(int index) {
     if (index < 0 || index >= _length) return null;
 
@@ -152,6 +162,8 @@ class DoubleLinkedList<T> extends Iterable<T> {
     return current;
   }
 
+  /// Replacing the value of a node to the in a Doubly Linked List.
+  ///
   /// Pseudocode:
   /// - This function should accept a value and an index.
   /// - Use your get function to find the specific node.
@@ -166,6 +178,8 @@ class DoubleLinkedList<T> extends Iterable<T> {
     return false;
   }
 
+  /// Adding a node in a Doubly Linked List by a certain position.
+  ///
   /// Pseudocode:
   /// - If the index is less than zero or greater than the length, return false.
   /// - If the index is the same as the length, push a new node to the end of the list.
@@ -195,6 +209,8 @@ class DoubleLinkedList<T> extends Iterable<T> {
     return true;
   }
 
+  /// Removing a node in a Doubly Linked List by a certain position.
+  ///
   /// Pseudocode:
   /// - If the index is less than zero or greater than or equal to the length, return null.
   /// - If the index is the same as the length-1, return pop.

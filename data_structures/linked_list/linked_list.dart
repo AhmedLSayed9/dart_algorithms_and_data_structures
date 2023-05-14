@@ -18,6 +18,8 @@ class LinkedList<T> extends Iterable<T> {
   @override
   Iterator<T> get iterator => _LinkedListIterator<T>(this._head);
 
+  /// Adding a new node to the end of the Linked List.
+  ///
   /// Pseudocode:
   /// - This function should accept a value.
   /// - Create a new node using the value passed to the function.
@@ -42,6 +44,8 @@ class LinkedList<T> extends Iterable<T> {
     return this;
   }
 
+  /// Removing a node from the end of the Linked List.
+  ///
   /// Pseudocode:
   /// - If the list is empty, return null.
   /// - If the length is 1, set the head and tail to null.
@@ -72,6 +76,8 @@ class LinkedList<T> extends Iterable<T> {
     return poppedNode.value;
   }
 
+  /// Removing a node from the beginning of the Linked List.
+  ///
   /// Pseudocode:
   /// - If the list is empty, return null.
   /// - Store the current head in a variable to return later.
@@ -95,6 +101,8 @@ class LinkedList<T> extends Iterable<T> {
     return oldHead.value;
   }
 
+  /// Adding a new node to the beginning of the Linked List.
+  ///
   /// Pseudocode:
   /// - This function should accept a value.
   /// - Create a new node using the value passed to the function.
@@ -119,16 +127,18 @@ class LinkedList<T> extends Iterable<T> {
     return this;
   }
 
-  T? get(int index) {
-    return _getNodeAtIndex(index)?.value;
-  }
-
+  /// Retrieving a node by it's position in the Linked List.
+  ///
   /// Pseudocode:
   /// - This function should accept an index.
   /// - If the index is less than zero or greater than or equal to the length of the list, return null.
   /// - Otherwise:
   ///   - Loop through the list until you reach the index.
   ///   - Return the node at that specific index.
+  T? get(int index) {
+    return _getNodeAtIndex(index)?.value;
+  }
+
   Node<T>? _getNodeAtIndex(int index) {
     if (index < 0 || index >= _length) return null;
 
@@ -139,6 +149,8 @@ class LinkedList<T> extends Iterable<T> {
     return current;
   }
 
+  /// Changing the value of a node based on it's position in the Linked List.
+  ///
   /// Pseudocode:
   /// - This function should accept a value and an index.
   /// - Use your get function to find the specific node.
@@ -153,6 +165,8 @@ class LinkedList<T> extends Iterable<T> {
     return false;
   }
 
+  /// Adding a node to the Linked List at a specific position.
+  ///
   /// Pseudocode:
   /// - If the index is less than zero or greater than the length, return false.
   /// - If the index is the same as the length, push a new node to the end of the list.
@@ -180,6 +194,8 @@ class LinkedList<T> extends Iterable<T> {
     return true;
   }
 
+  /// Removing a node from the Linked List at a specific position.
+  ///
   /// Pseudocode:
   /// - If the index is less than zero or greater than or equal to the length, return null.
   /// - If the index is the same as the length-1, return pop.
@@ -202,6 +218,8 @@ class LinkedList<T> extends Iterable<T> {
     return removedNode.value;
   }
 
+  /// Reversing the Linked List in place.
+  ///
   /// Pseudocode:
   /// - Swap the head and tail.
   /// - Create a variable called next.

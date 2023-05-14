@@ -18,7 +18,9 @@ class LinkedListStack<T> {
 
   bool get isEmpty => size == 0;
 
-  /// Push from the start (head) same as the linked list's unShift. (to achieve constant time when popping)
+  /// Add a value to the top of the stack.
+  /// Pushing from the start (head) as the linked list's unShift. (to achieve constant time when popping)
+  ///
   /// Pseudocode:
   /// - The function should accept a value.
   /// - Create a new node with that value.
@@ -32,6 +34,9 @@ class LinkedListStack<T> {
     return ++_size;
   }
 
+  /// Remove a value from the top of the stack.
+  /// Popping from the start too (head) same as the linked list's shift.
+  ///
   /// Pseudocode:
   /// - If the stack is empty, return null.
   /// - Create a temporary variable to store the head property in the stack.
