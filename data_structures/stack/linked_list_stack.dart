@@ -19,7 +19,7 @@ class LinkedListStack<T> {
   bool get isEmpty => size == 0;
 
   /// Add a value to the top of the stack.
-  /// Pushing from the start (head) as the linked list's unShift. (to achieve constant time when popping)
+  /// Pushing from the start (head) same as the linked list's unShift. (to achieve constant time when popping)
   ///
   /// Pseudocode:
   /// - The function should accept a value.
