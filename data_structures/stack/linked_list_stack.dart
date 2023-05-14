@@ -17,12 +17,12 @@ class LinkedListStack<T> {
 
   bool get isEmpty => size == 0;
 
-  /// Push from the start same as the linked list's unShift. (to achieve constant time when popping)
+  /// Push from the start (head) same as the linked list's unShift. (to achieve constant time when popping)
   /// Pseudocode:
   /// - The function should accept a value.
   /// - Create a new node with that value.
-  /// - Set the newly created node's next property to be the current head property on the stack.
-  /// - Set the head property on the stack to be that newly created node.
+  /// - Set the newly created node's next property to be the current head property in the stack.
+  /// - Set the head property in the stack to be that newly created node.
   /// - Increment the size of the stack by 1 and return it.
   int push(T value) {
     final newNode = Node(value);
@@ -32,19 +32,19 @@ class LinkedListStack<T> {
   }
 
   /// Pseudocode:
-  /// - If there are no nodes in the stack, return null.
-  /// - Create a temporary variable to store the head property on the stack.
+  /// - If the stack is empty, return null.
+  /// - Create a temporary variable to store the head property in the stack.
   /// - Set the head property to be the next property on the current head.
   /// - Decrement the size by 1.
   /// - Return the value of the node removed.
   T? pop() {
-    if (_size == 0) return null;
+    final poppedNode = _head;
+    if (poppedNode == null) return null;
 
-    Node<T>? oldHead = _head;
-    _head = oldHead?.next;
+    _head = poppedNode.next;
 
     _size--;
-    return oldHead?.value;
+    return poppedNode.value;
   }
 }
 
@@ -84,7 +84,6 @@ void main() {
       expect(linkedList.pop(), isNull);
     });
   });
-
 
   test('isEmpty should return true only if the stack is empty', () {
     final linkedList = LinkedListStack<int>();

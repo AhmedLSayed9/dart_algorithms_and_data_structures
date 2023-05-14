@@ -19,11 +19,11 @@ class ArrayStack<T> {
   T? pop() {
     if (_size == 0) return null;
 
-    final T oldLast = _stack[_size - 1];
+    final T poppedItem = _stack[_size - 1];
     _stack.removeAt(_size - 1);
 
     _size--;
-    return oldLast;
+    return poppedItem;
   }
 }
 
