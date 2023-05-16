@@ -1,5 +1,9 @@
 import 'package:test/test.dart';
 
+import '../../../linear/queue/queue.dart' as q;
+
+part 'binary_tree_traversal.dart';
+
 class Node<num> {
   Node(this.value);
 
@@ -9,7 +13,7 @@ class Node<num> {
 }
 
 class BinarySearchTree {
-  Node<num>? root;
+  Node<num>? _root;
 
   /// Pseudocode (Iteratively or Recursively):
   /// - Create a new node.
@@ -24,10 +28,10 @@ class BinarySearchTree {
   ///     - If there is, move to that node and repeat these steps.
   ///     - If there is not, add that node as the left property.
   BinarySearchTree? insert(num value) {
-    if (root case final root?) {
+    if (_root case final root?) {
       return _insertRecursive(value, root);
     }
-    root = Node(value);
+    _root = Node(value);
     return this;
   }
 
@@ -63,7 +67,7 @@ class BinarySearchTree {
   ///       - If there is, move to that node and repeat these steps.
   ///       - If there is not, we're done searching.
   bool find(num value) {
-    return _findRecursive(value, root);
+    return _findRecursive(value, _root);
   }
 
   bool _findRecursive(num value, Node<num>? node) {
@@ -83,10 +87,10 @@ void main() {
       tree.insert(1);
       tree.insert(4);
 
-      expect(tree.root, isA<Node>().having((p) => p.value, 'value', 3));
-      expect(tree.root?.right, isA<Node>().having((p) => p.value, 'value', 4));
-      expect(tree.root?.left, isA<Node>().having((p) => p.value, 'value', 2));
-      expect(tree.root?.left?.left,
+      expect(tree._root, isA<Node>().having((p) => p.value, 'value', 3));
+      expect(tree._root?.right, isA<Node>().having((p) => p.value, 'value', 4));
+      expect(tree._root?.left, isA<Node>().having((p) => p.value, 'value', 2));
+      expect(tree._root?.left?.left,
           isA<Node>().having((p) => p.value, 'value', 1));
     });
 
@@ -95,9 +99,9 @@ void main() {
       tree.insert(1);
       tree.insert(1);
 
-      expect(tree.root, isA<Node>().having((p) => p.value, 'value', 1));
-      expect(tree.root?.right, null);
-      expect(tree.root?.left, null);
+      expect(tree._root, isA<Node>().having((p) => p.value, 'value', 1));
+      expect(tree._root?.right, null);
+      expect(tree._root?.left, null);
     });
   });
 
@@ -112,6 +116,76 @@ void main() {
       expect(tree.find(2), true);
       expect(tree.find(4), true);
       expect(tree.find(1), false);
+    });
+  });
+
+  group('BinaryTreeTraversalX', () {
+    test('breadthFirstSearch', () {
+      final emptyTree = BinarySearchTree();
+      expect(emptyTree.bfs(), []);
+
+      //       4
+      //  2        6
+      // 1  3        7
+      final tree = BinarySearchTree();
+      tree.insert(4);
+      tree.insert(2);
+      tree.insert(6);
+      tree.insert(1);
+      tree.insert(3);
+      tree.insert(7);
+      expect(tree.bfs(), [4, 2, 6, 1, 3, 7]);
+    });
+
+    test('dfsPreOrder', () {
+      final emptyTree = BinarySearchTree();
+      expect(emptyTree.dfsPreOrder(), []);
+
+      //       4
+      //  2        6
+      // 1  3        7
+      final tree = BinarySearchTree();
+      tree.insert(4);
+      tree.insert(2);
+      tree.insert(6);
+      tree.insert(1);
+      tree.insert(3);
+      tree.insert(7);
+      expect(tree.dfsPreOrder(), [4, 2, 1, 3, 6, 7]);
+    });
+
+    test('dfsPostOrder', () {
+      final emptyTree = BinarySearchTree();
+      expect(emptyTree.dfsPostOrder(), []);
+
+      //       4
+      //  2        6
+      // 1  3        7
+      final tree = BinarySearchTree();
+      tree.insert(4);
+      tree.insert(2);
+      tree.insert(6);
+      tree.insert(1);
+      tree.insert(3);
+      tree.insert(7);
+      expect(tree.dfsPostOrder(), [1, 3, 2, 7, 6, 4]);
+    });
+
+    test('dfsInOrder', () {
+      final emptyTree = BinarySearchTree();
+      expect(emptyTree.dfsInOrder(), []);
+
+      //       4
+      //  2        6
+      // 1  3        7
+      final tree = BinarySearchTree();
+      tree.insert(4);
+      tree.insert(2);
+      tree.insert(6);
+      tree.insert(1);
+      tree.insert(3);
+      tree.insert(7);
+      expect(tree.dfsInOrder(), [1, 2, 3, 4, 6, 7]);
     });
   });
 }

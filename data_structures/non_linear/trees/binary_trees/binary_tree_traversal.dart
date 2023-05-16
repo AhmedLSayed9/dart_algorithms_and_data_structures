@@ -1,7 +1,4 @@
-import 'package:test/test.dart';
-
-import '../../../linear/queue/queue.dart' as q;
-import 'binary_search_tree.dart';
+part of 'binary_search_tree.dart';
 
 extension BinaryTreeTraversalX on BinarySearchTree {
   /// Breadth-first Search (BFS) Pseudocode (Iteratively):
@@ -15,7 +12,7 @@ extension BinaryTreeTraversalX on BinarySearchTree {
   List<num> bfs() {
     final List<num> data = [];
     final queue = q.Queue<Node<num>>();
-    if (root case final root?) queue.enqueue(root);
+    if (_root case final root?) queue.enqueue(root);
 
     Node<num> dequeuedNode;
     while (!queue.isEmpty) {
@@ -38,7 +35,7 @@ extension BinaryTreeTraversalX on BinarySearchTree {
   /// - Return the array of values.
   List<num> dfsPreOrder() {
     final List<num> data = [];
-    _dfsPreOrderRecursive(data, root);
+    _dfsPreOrderRecursive(data, _root);
     return data;
   }
 
@@ -59,7 +56,7 @@ extension BinaryTreeTraversalX on BinarySearchTree {
   /// - Return the array of values.
   List<num> dfsPostOrder() {
     final List<num> data = [];
-    _dfsPostOrderRecursive(data, root);
+    _dfsPostOrderRecursive(data, _root);
     return data;
   }
 
@@ -80,7 +77,7 @@ extension BinaryTreeTraversalX on BinarySearchTree {
   /// - Return the array of values.
   List<num> dfsInOrder() {
     final List<num> data = [];
-    _dfsInOrderRecursive(data, root);
+    _dfsInOrderRecursive(data, _root);
     return data;
   }
 
@@ -90,74 +87,4 @@ extension BinaryTreeTraversalX on BinarySearchTree {
     data.add(node.value);
     if (node.right != null) _dfsInOrderRecursive(data, node.right);
   }
-}
-
-void main() {
-  test('breadthFirstSearch', () {
-    final emptyTree = BinarySearchTree();
-    expect(emptyTree.bfs(), []);
-
-    //       4
-    //  2        6
-    // 1  3        7
-    final tree = BinarySearchTree();
-    tree.insert(4);
-    tree.insert(2);
-    tree.insert(6);
-    tree.insert(1);
-    tree.insert(3);
-    tree.insert(7);
-    expect(tree.bfs(), [4, 2, 6, 1, 3, 7]);
-  });
-
-  test('dfsPreOrder', () {
-    final emptyTree = BinarySearchTree();
-    expect(emptyTree.dfsPreOrder(), []);
-
-    //       4
-    //  2        6
-    // 1  3        7
-    final tree = BinarySearchTree();
-    tree.insert(4);
-    tree.insert(2);
-    tree.insert(6);
-    tree.insert(1);
-    tree.insert(3);
-    tree.insert(7);
-    expect(tree.dfsPreOrder(), [4, 2, 1, 3, 6, 7]);
-  });
-
-  test('dfsPostOrder', () {
-    final emptyTree = BinarySearchTree();
-    expect(emptyTree.dfsPostOrder(), []);
-
-    //       4
-    //  2        6
-    // 1  3        7
-    final tree = BinarySearchTree();
-    tree.insert(4);
-    tree.insert(2);
-    tree.insert(6);
-    tree.insert(1);
-    tree.insert(3);
-    tree.insert(7);
-    expect(tree.dfsPostOrder(), [1, 3, 2, 7, 6, 4]);
-  });
-
-  test('dfsInOrder', () {
-    final emptyTree = BinarySearchTree();
-    expect(emptyTree.dfsInOrder(), []);
-
-    //       4
-    //  2        6
-    // 1  3        7
-    final tree = BinarySearchTree();
-    tree.insert(4);
-    tree.insert(2);
-    tree.insert(6);
-    tree.insert(1);
-    tree.insert(3);
-    tree.insert(7);
-    expect(tree.dfsInOrder(), [1, 2, 3, 4, 6, 7]);
-  });
 }
