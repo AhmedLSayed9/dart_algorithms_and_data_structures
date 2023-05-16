@@ -24,34 +24,30 @@ class BinarySearchTree {
   ///     - If there is, move to that node and repeat these steps.
   ///     - If there is not, add that node as the left property.
   BinarySearchTree? insert(num value) {
-    final newNode = Node(value);
-    final currentRoot = root;
-
-    if (currentRoot == null) {
-      root = newNode;
-      return this;
+    if (root case final root?) {
+      return _insertRecursive(value, root);
     }
+    root = Node(value);
+    return this;
+  }
 
-    BinarySearchTree? insertHelper(Node<num> node) {
-      if (value < node.value) {
-        if (node.left == null) {
-          node.left = newNode;
-          return this;
-        }
-        return insertHelper(node.left!);
+  BinarySearchTree? _insertRecursive(num value, Node<num> node) {
+    if (value < node.value) {
+      if (node.left == null) {
+        node.left = Node(value);
+        return this;
       }
-      if (value > node.value) {
-        if (node.right == null) {
-          node.right = newNode;
-          return this;
-        }
-        return insertHelper(node.right!);
-      }
-      //value == node.value (value already there)
-      return null;
+      return _insertRecursive(value, node.left!);
     }
-
-    return insertHelper(currentRoot);
+    if (value > node.value) {
+      if (node.right == null) {
+        node.right = Node(value);
+        return this;
+      }
+      return _insertRecursive(value, node.right!);
+    }
+    //value == node.value (value already there)
+    return null;
   }
 
   /// Pseudocode (Iteratively or Recursively):
@@ -67,14 +63,14 @@ class BinarySearchTree {
   ///       - If there is, move to that node and repeat these steps.
   ///       - If there is not, we're done searching.
   bool find(num value) {
-    bool findHelper(Node<num>? node) {
-      if (node == null) return false;
-      if (value < node.value) return findHelper(node.left);
-      if (value > node.value) return findHelper(node.right);
-      return true; //value == node.value (value has found)
-    }
+    return _findRecursive(value, root);
+  }
 
-    return findHelper(root);
+  bool _findRecursive(num value, Node<num>? node) {
+    if (node == null) return false;
+    if (value < node.value) return _findRecursive(value, node.left);
+    if (value > node.value) return _findRecursive(value, node.right);
+    return true; //value == node.value (value has found)
   }
 }
 
