@@ -11,7 +11,7 @@ class Node<num> {
 class BinarySearchTree {
   Node<num>? root;
 
-  /// Pseudocode:
+  /// Pseudocode (Iteratively or Recursively):
   /// - Create a new node.
   /// - Check if there is a root, if not - the root now becomes that new node.
   /// - If there is a root, check if the value of the new node is greater than or less than the value of the root.
@@ -54,7 +54,7 @@ class BinarySearchTree {
     return insertHelper(currentRoot);
   }
 
-  /// Pseudocode:
+  /// Pseudocode (Iteratively or Recursively):
   /// - Starting at the root.
   /// - Check if there is a root, if not - we're done searching.
   /// - If there is a root, check if the value of the new node is the value we are looking for:
@@ -81,41 +81,41 @@ class BinarySearchTree {
 void main() {
   group('insert', () {
     test('should insert items to the correct branches', () {
-      final bst = BinarySearchTree();
-      bst.insert(3);
-      bst.insert(2);
-      bst.insert(1);
-      bst.insert(4);
+      final tree = BinarySearchTree();
+      tree.insert(3);
+      tree.insert(2);
+      tree.insert(1);
+      tree.insert(4);
 
-      expect(bst.root, isA<Node>().having((p) => p.value, 'value', 3));
-      expect(bst.root?.right, isA<Node>().having((p) => p.value, 'value', 4));
-      expect(bst.root?.left, isA<Node>().having((p) => p.value, 'value', 2));
-      expect(
-          bst.root?.left?.left, isA<Node>().having((p) => p.value, 'value', 1));
+      expect(tree.root, isA<Node>().having((p) => p.value, 'value', 3));
+      expect(tree.root?.right, isA<Node>().having((p) => p.value, 'value', 4));
+      expect(tree.root?.left, isA<Node>().having((p) => p.value, 'value', 2));
+      expect(tree.root?.left?.left,
+          isA<Node>().having((p) => p.value, 'value', 1));
     });
 
     test('should not insert item if it is already there', () {
-      final bst = BinarySearchTree();
-      bst.insert(1);
-      bst.insert(1);
+      final tree = BinarySearchTree();
+      tree.insert(1);
+      tree.insert(1);
 
-      expect(bst.root, isA<Node>().having((p) => p.value, 'value', 1));
-      expect(bst.root?.right, null);
-      expect(bst.root?.left, null);
+      expect(tree.root, isA<Node>().having((p) => p.value, 'value', 1));
+      expect(tree.root?.right, null);
+      expect(tree.root?.left, null);
     });
   });
 
   group('find', () {
     test('should return true if item is found and false if not found', () {
-      final bst = BinarySearchTree();
-      bst.insert(3);
-      bst.insert(2);
-      bst.insert(4);
+      final tree = BinarySearchTree();
+      tree.insert(3);
+      tree.insert(2);
+      tree.insert(4);
 
-      expect(bst.find(3), true);
-      expect(bst.find(2), true);
-      expect(bst.find(4), true);
-      expect(bst.find(1), false);
+      expect(tree.find(3), true);
+      expect(tree.find(2), true);
+      expect(tree.find(4), true);
+      expect(tree.find(1), false);
     });
   });
 }
