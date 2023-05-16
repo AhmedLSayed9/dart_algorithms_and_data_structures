@@ -95,7 +95,7 @@ void main() {
     });
   });
 
-  group('pop', () {
+  group('extract', () {
     test('should extract last item and sift-down', () {
       final heap = MaxBinaryHeap();
       //        41
