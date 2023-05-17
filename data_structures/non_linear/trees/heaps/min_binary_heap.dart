@@ -96,7 +96,9 @@ void main() {
   });
 
   group('extract', () {
-    test('should extract last item and sift-down', () {
+    test(
+        'should extract root item after swapping with last item, then sift-down',
+        () {
       final heap = MinBinaryHeap();
       //        6
       //   12        15
