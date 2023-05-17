@@ -5,18 +5,6 @@ import '../../../../utils/list_extension.dart';
 class MaxBinaryHeap {
   final List<num> _heap = [];
 
-  /// (Converting an array into a MaxBinaryHeap)
-  /// Pseudocode:
-  /// Create a new heap.
-  /// Iterate over the array and invoke your insert function.
-  /// return the values property on the heap.
-  List<num> heapify(List<num> array) {
-    for (final num in array) {
-      insert(num);
-    }
-    return _heap;
-  }
-
   /// Pseudocode:
   /// - Push the value into the values property on the heap.
   /// - Sift-Up:
@@ -93,7 +81,7 @@ void main() {
       //        41
       //   39        33
       // 18  27   12
-      heap.heapify([41, 39, 33, 18, 27, 12]);
+      heap._heap.addAll([41, 39, 33, 18, 27, 12]);
 
       //             55
       //        39        41
@@ -115,7 +103,7 @@ void main() {
       //        41
       //   39        33
       // 18  27   12
-      heap.heapify([41, 39, 33, 18, 27, 12]);
+      heap._heap.addAll([41, 39, 33, 18, 27, 12]);
 
       //        39
       //   27        33
@@ -128,16 +116,6 @@ void main() {
       final heap = MaxBinaryHeap();
 
       expect(heap.extract(), isNull);
-    });
-  });
-
-  group('heapify', () {
-    test('should convert the list into MaxBinaryHeap', () {
-      final heap = MaxBinaryHeap();
-      //         6
-      //     5      3
-      //   1   2
-      expect(heap.heapify([2, 3, 6, 1, 5]), [6, 5, 3, 1, 2]);
     });
   });
 }

@@ -5,18 +5,6 @@ import '../../../../utils/list_extension.dart';
 class MinBinaryHeap {
   final List<num> _heap = [];
 
-  /// (Converting an array into a MinBinaryHeap)
-  /// Pseudocode:
-  /// Create a new heap.
-  /// Iterate over the array and invoke your insert function.
-  /// return the values property on the heap.
-  List<num> heapify(List<num> array) {
-    for (final num in array) {
-      insert(num);
-    }
-    return _heap;
-  }
-
   /// Pseudocode:
   /// - Push the value into the values property on the heap.
   /// - Sift-Up:
@@ -93,7 +81,7 @@ void main() {
       //        6
       //   12        15
       // 18  16   20
-      heap.heapify([6, 12, 15, 18, 16, 20]);
+      heap._heap.addAll([6, 12, 15, 18, 16, 20]);
 
       //            3
       //       4         6
@@ -115,7 +103,7 @@ void main() {
       //        6
       //   12        15
       // 18  16   20
-      heap.heapify([6, 12, 15, 18, 16, 20]);
+      heap._heap.addAll([6, 12, 15, 18, 16, 20]);
 
       //        12
       //   16        15
@@ -128,16 +116,6 @@ void main() {
       final heap = MinBinaryHeap();
 
       expect(heap.extract(), isNull);
-    });
-  });
-
-  group('heapify', () {
-    test('should convert the list into MinBinaryHeap', () {
-      final heap = MinBinaryHeap();
-      //         1
-      //     2      5
-      //   6   3
-      expect(heap.heapify([6, 5, 3, 1, 2]), [1, 2, 5, 6, 3]);
     });
   });
 }
