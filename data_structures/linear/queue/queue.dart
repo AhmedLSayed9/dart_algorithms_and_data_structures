@@ -18,6 +18,8 @@ class Queue<T> {
 
   bool get isEmpty => size == 0;
 
+  bool get isNotEmpty => !isEmpty;
+
   /// Adding to the beginning of the Queue.
   /// En-queuing from the end (last) same as the linked list's push. (to achieve constant time when popping)
   ///

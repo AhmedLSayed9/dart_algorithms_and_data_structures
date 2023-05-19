@@ -15,7 +15,7 @@ extension BinaryTreeTraversalX on BinarySearchTree {
     if (_root case final root?) queue.enqueue(root);
 
     Node<num> dequeuedNode;
-    while (!queue.isEmpty) {
+    while (queue.isNotEmpty) {
       dequeuedNode = queue.dequeue()!;
       data.add(dequeuedNode.value);
       if (dequeuedNode.left != null) queue.enqueue(dequeuedNode.left!);
