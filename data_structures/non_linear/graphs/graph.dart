@@ -2,9 +2,9 @@ import 'package:test/test.dart';
 
 import '../../linear/queue/queue.dart';
 
-/// An undirected GRAPH using the adjacency list representation.
+/// An Undirected Graph using the adjacency list representation.
 class Graph<T> {
-  /// Creates an undirected GRAPH using the adjacency list representation.
+  /// Creates an Undirected Graph using the adjacency list representation.
   Graph();
 
   final Map<T, List<T>> _adjacencyList = {};
