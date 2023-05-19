@@ -84,16 +84,16 @@ class Graph<T> {
     final List<T> data = [];
     final Set<T> visited = {};
 
-    _dfsRecursion(data, visited, startingVertex);
+    _dfsRecursive(data, visited, startingVertex);
     return data;
   }
 
-  void _dfsRecursion(List<T> data, Set<T> visited, T vertex) {
+  void _dfsRecursive(List<T> data, Set<T> visited, T vertex) {
     visited.add(vertex);
     data.add(vertex);
 
     for (final neighbor in _adjacencyList[vertex]!) {
-      if (!visited.contains(neighbor)) _dfsRecursion(data, visited, neighbor);
+      if (!visited.contains(neighbor)) _dfsRecursive(data, visited, neighbor);
     }
   }
 
