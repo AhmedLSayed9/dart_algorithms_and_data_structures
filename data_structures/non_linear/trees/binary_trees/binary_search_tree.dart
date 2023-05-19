@@ -29,26 +29,26 @@ class BinarySearchTree {
   ///     - If there is not, add that node as the left property.
   BinarySearchTree? insert(num value) {
     if (_root case final root?) {
-      return _insertRecursive(value, root);
+      return _insertRecursion(value, root);
     }
     _root = Node(value);
     return this;
   }
 
-  BinarySearchTree? _insertRecursive(num value, Node<num> node) {
+  BinarySearchTree? _insertRecursion(num value, Node<num> node) {
     if (value < node.value) {
       if (node.left == null) {
         node.left = Node(value);
         return this;
       }
-      return _insertRecursive(value, node.left!);
+      return _insertRecursion(value, node.left!);
     }
     if (value > node.value) {
       if (node.right == null) {
         node.right = Node(value);
         return this;
       }
-      return _insertRecursive(value, node.right!);
+      return _insertRecursion(value, node.right!);
     }
     //value == node.value (value already there)
     return null;
@@ -67,13 +67,13 @@ class BinarySearchTree {
   ///       - If there is, move to that node and repeat these steps.
   ///       - If there is not, we're done searching.
   bool find(num value) {
-    return _findRecursive(value, _root);
+    return _findRecursion(value, _root);
   }
 
-  bool _findRecursive(num value, Node<num>? node) {
+  bool _findRecursion(num value, Node<num>? node) {
     if (node == null) return false;
-    if (value < node.value) return _findRecursive(value, node.left);
-    if (value > node.value) return _findRecursive(value, node.right);
+    if (value < node.value) return _findRecursion(value, node.left);
+    if (value > node.value) return _findRecursion(value, node.right);
     return true; //value == node.value (value has found)
   }
 }

@@ -35,15 +35,15 @@ extension BinaryTreeTraversalX on BinarySearchTree {
   /// - Return the array of values.
   List<num> dfsPreOrder() {
     final List<num> data = [];
-    _dfsPreOrderRecursive(data, _root);
+    _dfsPreOrderRecursion(data, _root);
     return data;
   }
 
-  void _dfsPreOrderRecursive(List<num> data, Node<num>? node) {
+  void _dfsPreOrderRecursion(List<num> data, Node<num>? node) {
     if (node == null) return;
     data.add(node.value);
-    if (node.left != null) _dfsPreOrderRecursive(data, node.left);
-    if (node.right != null) _dfsPreOrderRecursive(data, node.right);
+    if (node.left != null) _dfsPreOrderRecursion(data, node.left);
+    if (node.right != null) _dfsPreOrderRecursion(data, node.right);
   }
 
   /// Depth-first Search (DFS) PostOrder Pseudocode (Recursively):
@@ -56,14 +56,14 @@ extension BinaryTreeTraversalX on BinarySearchTree {
   /// - Return the array of values.
   List<num> dfsPostOrder() {
     final List<num> data = [];
-    _dfsPostOrderRecursive(data, _root);
+    _dfsPostOrderRecursion(data, _root);
     return data;
   }
 
-  void _dfsPostOrderRecursive(List<num> data, Node<num>? node) {
+  void _dfsPostOrderRecursion(List<num> data, Node<num>? node) {
     if (node == null) return;
-    if (node.left != null) _dfsPostOrderRecursive(data, node.left);
-    if (node.right != null) _dfsPostOrderRecursive(data, node.right);
+    if (node.left != null) _dfsPostOrderRecursion(data, node.left);
+    if (node.right != null) _dfsPostOrderRecursion(data, node.right);
     data.add(node.value);
   }
 
@@ -77,14 +77,14 @@ extension BinaryTreeTraversalX on BinarySearchTree {
   /// - Return the array of values.
   List<num> dfsInOrder() {
     final List<num> data = [];
-    _dfsInOrderRecursive(data, _root);
+    _dfsInOrderRecursion(data, _root);
     return data;
   }
 
-  void _dfsInOrderRecursive(List<num> data, Node<num>? node) {
+  void _dfsInOrderRecursion(List<num> data, Node<num>? node) {
     if (node == null) return;
-    if (node.left != null) _dfsInOrderRecursive(data, node.left);
+    if (node.left != null) _dfsInOrderRecursion(data, node.left);
     data.add(node.value);
-    if (node.right != null) _dfsInOrderRecursive(data, node.right);
+    if (node.right != null) _dfsInOrderRecursion(data, node.right);
   }
 }

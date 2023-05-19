@@ -78,22 +78,22 @@ class Graph<T> {
   /// - Invoke the helper function with the starting vertex.
   /// - Return the result array.
   List<T> dfs(T startingVertex) {
-    // startingVertex vertex doesn't exist.
+    // startingVertex doesn't exist.
     if (_adjacencyList[startingVertex] == null) return [];
 
     final List<T> data = [];
     final Set<T> visited = {};
 
-    _dfsRecursive(data, visited, startingVertex);
+    _dfsRecursion(data, visited, startingVertex);
     return data;
   }
 
-  void _dfsRecursive(List<T> data, Set<T> visited, T vertex) {
+  void _dfsRecursion(List<T> data, Set<T> visited, T vertex) {
     visited.add(vertex);
     data.add(vertex);
 
     for (final neighbor in _adjacencyList[vertex]!) {
-      if (!visited.contains(neighbor)) _dfsRecursive(data, visited, neighbor);
+      if (!visited.contains(neighbor)) _dfsRecursion(data, visited, neighbor);
     }
   }
 
@@ -110,7 +110,7 @@ class Graph<T> {
   ///   - If any of those values have not been visited, mark it as visited and enqueue that vertex.
   /// - Return the result array.
   List<T> bfs(T startingVertex) {
-    // startingVertex vertex doesn't exist.
+    // startingVertex doesn't exist.
     if (_adjacencyList[startingVertex] == null) return [];
 
     final List<T> data = [];
