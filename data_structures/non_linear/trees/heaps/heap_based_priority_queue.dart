@@ -18,13 +18,13 @@ class Node<T> {
   Node(this.value, this.priority);
 
   T value;
-  int priority;
+  num priority;
 }
 
 class PriorityQueue<T> {
   final List<Node<T>> _heap = [];
 
-  void enqueue(T value, int priority) {
+  void enqueue(T value, num priority) {
     final newNode = Node(value, priority);
     _heap.add(newNode);
     _siftUp();
