@@ -79,7 +79,7 @@ class Graph<T> {
   /// - Return the result array.
   List<T> dfs(T startingVertex) {
     // startingVertex doesn't exist.
-    if (_adjacencyList[startingVertex] == null) return [];
+    if (!_adjacencyList.containsKey(startingVertex)) return [];
 
     final List<T> data = [];
     final Set<T> visited = {};
@@ -111,7 +111,7 @@ class Graph<T> {
   /// - Return the result array.
   List<T> bfs(T startingVertex) {
     // startingVertex doesn't exist.
-    if (_adjacencyList[startingVertex] == null) return [];
+    if (!_adjacencyList.containsKey(startingVertex)) return [];
 
     final List<T> data = [];
     final Set<T> visited = {};
