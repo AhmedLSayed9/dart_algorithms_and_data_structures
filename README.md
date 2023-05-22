@@ -45,3 +45,8 @@
 
 ### Dynamic Programming
 * [Fibonacci Sequence Example](https://github.com/AhmedLSayed9/dart_algorithms_and_data_structures/blob/master/dynamic_programming/fibonacci.dart)
+
+---
+
+### A recommended course to follow-up with for beginners:
+[JavaScript Algorithms and Data Structures Masterclass By Colt Steele](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
