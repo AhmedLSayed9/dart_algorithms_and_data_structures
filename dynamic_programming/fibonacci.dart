@@ -25,7 +25,7 @@ fibTabulated(int n) {
   return currentFib;
 }
 
-// Memoization (Top-down approach in Dynamic Programming) (involves recursion).
+// Memoization (Top-down approach in Dynamic Programming) (usually involves recursion).
 // Time Complexity: O(n)
 fibMemoized(int n) {
   if (n <= 0) throw ArgumentError('Input must be a positive integer');
