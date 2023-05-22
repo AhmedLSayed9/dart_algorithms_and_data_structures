@@ -9,7 +9,7 @@ void main() {
   syncExecTimeMeasure(() => print(fibRecursive(45)), name: 'O(n^2)');
 }
 
-// Tabulation (Bottom-up approach in Dynamic Programming)
+// Tabulation (Bottom-up approach in Dynamic Programming) (usually done using iteration).
 // Time Complexity: O(n), and better Auxiliary Space.
 fibTabulated(int n) {
   if (n <= 0) throw ArgumentError('Input must be a positive integer');
