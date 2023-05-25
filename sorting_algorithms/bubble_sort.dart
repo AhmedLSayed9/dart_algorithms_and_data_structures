@@ -23,7 +23,7 @@ List<int> bubbleSort(List<int> arr) {
         arr.swap(j, j + 1);
       }
     }
-    // (Optimization) if no two elements were swapped by inner loop, then break.
+    // (Optimization) if no elements were swapped by inner loop, then break.
     if (!swapped) break;
   }
 
