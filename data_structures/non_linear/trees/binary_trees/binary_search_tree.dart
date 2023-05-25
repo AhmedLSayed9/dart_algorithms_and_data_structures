@@ -15,7 +15,7 @@ class Node<num> {
 class BinarySearchTree {
   Node<num>? _root;
 
-  /// Pseudocode (Iteratively or Recursively):
+  /// Pseudocode (Recursively):
   /// - Create a new node.
   /// - Check if there is a root, if not - the root now becomes that new node.
   /// - If there is a root, check if the value of the new node is greater than or less than the value of the root.
@@ -54,7 +54,7 @@ class BinarySearchTree {
     return null;
   }
 
-  /// Pseudocode (Iteratively or Recursively):
+  /// Pseudocode (Recursively):
   /// - Starting at the root.
   /// - Check if there is a root, if not - we're done searching.
   /// - If there is a root, check if the value of the new node is the value we are looking for:
