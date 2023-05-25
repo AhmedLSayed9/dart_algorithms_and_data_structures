@@ -11,7 +11,7 @@ void main() {
 
 // Tabulation (Bottom-up approach in Dynamic Programming) (usually done using iteration).
 // Time Complexity: O(n), and better Auxiliary Space.
-fibTabulated(int n) {
+int fibTabulated(int n) {
   if (n <= 0) throw ArgumentError('Input must be a positive integer');
 
   final table = [1, 1];
@@ -27,10 +27,10 @@ fibTabulated(int n) {
 
 // Memoization (Top-down approach in Dynamic Programming) (usually involves recursion).
 // Time Complexity: O(n)
-fibMemoized(int n) {
+int fibMemoized(int n) {
   if (n <= 0) throw ArgumentError('Input must be a positive integer');
   if (n <= 2) return 1;
-  if (_memo.containsKey(n)) return _memo[n];
+  if (_memo.containsKey(n)) return _memo[n]!;
 
   final result = fibMemoized(n - 1) + fibMemoized(n - 2);
   _memo[n] = result;
@@ -44,7 +44,7 @@ final Map<int, int> _memo = {};
 // https://i.stack.imgur.com/kgXDS.png
 // Note: it's exactly (1.6180339887^n), which is known as the golden ratio:
 // https://stackoverflow.com/questions/360748
-fibRecursive(int n) {
+int fibRecursive(int n) {
   if (n <= 0) throw ArgumentError('Input must be a positive integer');
   if (n <= 2) return 1;
 
